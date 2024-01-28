@@ -51,6 +51,9 @@ function showWeather() {
             const countryCode = document.createElement("p");
             countryCode.textContent = `Country Code: ${data.sys.country}`;
 
+            const rainVolume = document.createElement("p");
+            rainVolume.textContent = `Rain Volume: ${data.rain ? data.rain["1h"] : 0} mm`;
+
             cityDiv.appendChild(temperature);
             cityDiv.appendChild(description);
             cityDiv.appendChild(weatherIcon);
@@ -60,6 +63,7 @@ function showWeather() {
             cityDiv.appendChild(pressure);
             cityDiv.appendChild(windSpeed);
             cityDiv.appendChild(countryCode);
+            cityDiv.appendChild(rainVolume);
             weatherContainer.appendChild(cityDiv);
         })
         .catch(error => {
